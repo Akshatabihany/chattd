@@ -106,27 +106,27 @@ io.on('connection', socket => {
   });
 });
 
-socket.on('input', function(data){
-  let name = data.name;
-  let message = data.msg;
+// socket.on('msg', function(data){
+//   let name = data.name;
+//   let message = data.msg;
 
-  // Check for name and message
-  if(name == '' || message == ''){
-      // Send error status
-      sendStatus('Please enter a name and message');
-  } else {
-      // Insert message
-      chat.insert({name: name, message: message}, function(){
-          client.emit('output', [data]);
+//   // Check for name and message
+//   if(name == '' || message == ''){
+//       // Send error status
+//       sendStatus('Please enter a name and message');
+//   } else {
+//       // Insert message
+//       chat.insert({name: name, message: message}, function(){
+//           client.emit('output', [data]);
 
-          // Send status object
-          sendStatus({
-              message: 'Message sent',
-              clear: true
-          });
-      });
-  }
-});
+//           // Send status object
+//           sendStatus({
+//               message: 'Message sent',
+//               clear: true
+//           });
+//       });
+//   }
+// });
 
 
 
